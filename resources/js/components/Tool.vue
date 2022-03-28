@@ -4,7 +4,7 @@
             <FullCalendar ref="fullCalendar" :options="calendarOptions" />
         </div>
 
-        <transition name="fade">
+<!--        <transition name="fade">
             <EventModal
                 v-if="showModal"
                 :currentEvent="currentEvent"
@@ -14,7 +14,7 @@
                 @confirm="saveEvent"
                 @delete="deleteEvent"
             />
-        </transition>
+        </transition>-->
     </div>
 </template>
 
@@ -28,8 +28,8 @@
 
     export default {
         components: {
-            FullCalendar,
-            EventModal
+            FullCalendar/*,
+            EventModal*/
         },
         data() {
             return {

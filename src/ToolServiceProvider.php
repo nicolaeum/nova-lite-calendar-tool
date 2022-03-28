@@ -21,9 +21,9 @@ class ToolServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-calendar-tool');
 
-        $this->publishes([
+        /*$this->publishes([
             __DIR__ . '/../database/migrations/create_events_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_events_table.php'),
-        ], 'migrations');
+        ], 'migrations');*/
 
         $this->publishes([
             __DIR__.'/config/nova-calendar-tool.php' => config_path('nova-calendar-tool.php'),
