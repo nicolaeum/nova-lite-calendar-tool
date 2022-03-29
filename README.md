@@ -23,7 +23,7 @@ composer require czemu/nova-calendar-tool
 
 Publish the migration:
 ```
-php artisan vendor:publish --provider='Czemu\NovaCalendarTool\ToolServiceProvider' --tag="migrations"
+php artisan vendor:publish --provider='nicolaeum\NovaCalendarTool\ToolServiceProvider' --tag="migrations"
 ```
 
 Run the migration:
@@ -33,7 +33,7 @@ php artisan migrate
 
 Publish the config (optional):
 ```
-php artisan vendor:publish --provider='Czemu\NovaCalendarTool\ToolServiceProvider' --tag="config"
+php artisan vendor:publish --provider='nicolaeum\NovaCalendarTool\ToolServiceProvider' --tag="config"
 ```
 
 Register the tool in the `tools` method of the `NovaServiceProvider`:
@@ -46,7 +46,7 @@ public function tools()
 {
     return [
         // ...
-        new \Czemu\NovaCalendarTool\NovaCalendarTool,
+        new \nicolaeum\NovaCalendarTool\NovaCalendarTool,
     ];
 }
 ```
