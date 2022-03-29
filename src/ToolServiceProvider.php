@@ -62,8 +62,8 @@ class ToolServiceProvider extends ServiceProvider
                 ->group(__DIR__.'/../routes/api.php');
 
         $this->commands([
-            \nicolaeum\NovaCalendarTool\Console\Commands\ImportEvents::class,
-            \nicolaeum\NovaCalendarTool\Console\Commands\ExportEvents::class
+            /*\nicolaeum\NovaCalendarTool\Console\Commands\ImportEvents::class,
+            \nicolaeum\NovaCalendarTool\Console\Commands\ExportEvents::class*/
         ]);
     }
 
