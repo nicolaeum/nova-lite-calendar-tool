@@ -12,7 +12,8 @@ class EventsController
     {
 //        dd(Event::filter($request->query())->toSql(['booking_source', 'from', 'to']));
         $events = Event::filter($request->query())
-            ->get(['booking_source', 'start', 'end']);
+//            ->get(['id', 'booking_source', 'start', 'end']);
+            ->get();
 //dd($events);
         return EventCollection::collection($events);
     }

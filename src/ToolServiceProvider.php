@@ -67,4 +67,9 @@ class ToolServiceProvider extends ServiceProvider
     {
         //
     }
+
+    public static function getItemModel()
+    {
+        return config('nova-lite-calendar-tool.item_model');
+    }
 }

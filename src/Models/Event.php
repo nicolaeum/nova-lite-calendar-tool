@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Validator;
 class Event extends Model
 {
     protected $guarded = ['id'];
-//    protected $table = 'property_bookings';
+
     protected $casts = [
-        'from'  => 'datetime',
-        'to'    => 'datetime'
+        'start'  => 'datetime',
+        'end'    => 'datetime'
     ];
 
     public function getTable()
