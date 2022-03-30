@@ -12407,7 +12407,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             calendarOptions: {
-                events: '/nova-vendor/nova-calendar-tool/events',
+                events: '/nova-vendor/nova-lite-calendar-tool/events',
                 plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
                 initialView: 'dayGridMonth',
                 locale: Nova.config.fullcalendar_locale || 'en',
@@ -30943,7 +30943,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleDelete: function handleDelete() {
             var _this = this;
 
-            Nova.request().delete('/nova-vendor/nova-calendar-tool/events/' + this.currentEvent.event.id + '/destroy').then(function (response) {
+            Nova.request().delete('/nova-vendor/nova-lite-calendar-tool/events/' + this.currentEvent.event.id + '/destroy').then(function (response) {
                 if (response.data.success) {
                     _this.$toasted.show('Event has been deleted', { type: 'success' });
                     _this.$emit('close');
@@ -30963,7 +30963,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
 
             if (this.currentEvent === null) {
-                Nova.request().post('/nova-vendor/nova-calendar-tool/events/store', data).then(function (response) {
+                Nova.request().post('/nova-vendor/nova-lite-calendar-tool/events/store', data).then(function (response) {
                     if (response.data.success) {
                         _this2.$toasted.show('Event has been created', { type: 'success' });
                         _this2.$emit('close');
@@ -30975,7 +30975,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return _this2.$toasted.show('Something went wrong', { type: 'error' });
                 });
             } else if (this.currentEvent !== null) {
-                Nova.request().put('/nova-vendor/nova-calendar-tool/events/' + this.currentEvent.event.id + '/update', data).then(function (response) {
+                Nova.request().put('/nova-vendor/nova-lite-calendar-tool/events/' + this.currentEvent.event.id + '/update', data).then(function (response) {
                     if (response.data.success) {
                         _this2.$toasted.show('Event has been updated', { type: 'success' });
                         _this2.$emit('close');

@@ -60,7 +60,7 @@
             },
             handleDelete() {
                 Nova.request()
-                    .delete('/nova-vendor/nova-calendar-tool/events/'+this.currentEvent.event.id+'/destroy')
+                    .delete('/nova-vendor/nova-lite-calendar-tool/events/'+this.currentEvent.event.id+'/destroy')
                     .then(response => {
                         if (response.data.success) {
                             this.$toasted.show('Event has been deleted', { type: 'success' });
@@ -79,7 +79,7 @@
 
                 if (this.currentEvent === null) {
                     Nova.request()
-                        .post('/nova-vendor/nova-calendar-tool/events/store', data)
+                        .post('/nova-vendor/nova-lite-calendar-tool/events/store', data)
                         .then(response => {
                             if (response.data.success) {
                                 this.$toasted.show('Event has been created', { type: 'success' });
@@ -92,7 +92,7 @@
                         .catch(response => this.$toasted.show('Something went wrong', { type: 'error' }));
                 } else if (this.currentEvent !== null) {
                     Nova.request()
-                        .put('/nova-vendor/nova-calendar-tool/events/'+this.currentEvent.event.id+'/update', data)
+                        .put('/nova-vendor/nova-lite-calendar-tool/events/'+this.currentEvent.event.id+'/update', data)
                         .then(response => {
                             if (response.data.success) {
                                 this.$toasted.show('Event has been updated', { type: 'success' });
