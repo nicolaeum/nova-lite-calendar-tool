@@ -12227,8 +12227,8 @@ module.exports = __webpack_require__(47);
 
 Nova.booting(function (Vue, router, store) {
   router.addRoutes([{
-    name: 'nova-calendar-tool',
-    path: '/nova-calendar-tool',
+    name: 'nova-lite-calendar-tool',
+    path: '/nova-lite-calendar-tool',
     component: __webpack_require__(15)
   }]);
 });
