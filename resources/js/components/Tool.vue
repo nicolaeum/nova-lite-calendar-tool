@@ -60,11 +60,11 @@
         },
         methods: {
             handleDateClick(date) {
-                this.showModal = true;
+                this.showModal = false;
                 this.currentDate = date;
             },
             handleEventClick(event) {
-                this.showModal = true;
+                this.showModal = false;
                 this.currentEvent = event;
             },
             closeModal() {

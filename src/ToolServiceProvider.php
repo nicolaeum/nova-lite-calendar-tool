@@ -1,14 +1,13 @@
 <?php
 
-namespace nicolaeum\NovaCalendarTool;
+namespace Nicolaeum\NovaCalendarTool;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
-use nicolaeum\NovaCalendarTool\Http\Middleware\Authorize;
-use nicolaeum\NovaCalendarTool\Models\Event;
-use nicolaeum\NovaCalendarTool\Observers\EventObserver;
+use Nicolaeum\NovaCalendarTool\Http\Middleware\Authorize;
+use Nicolaeum\NovaCalendarTool\Models\Event;
 
 class ToolServiceProvider extends ServiceProvider
 {
@@ -34,13 +33,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            if ( ! is_null(config('google-calendar.calendar_id')))
-            {
-                Event::observe(EventObserver::class);
-            }
-
             Nova::provideToScript([
-                'fullcalendar_locale' => config('nova-calendar-tool.fullcalendar_locale'),
+                'fullcalendar_locale' => config('nova-lite-calendar-tool.fullcalendar_locale'),
             ]);
         });
     }
@@ -58,7 +52,7 @@ class ToolServiceProvider extends ServiceProvider
 
         Route::middleware(['nova', Authorize::class])
                 ->prefix('nova-vendor/nova-calendar-tool')
-                ->namespace('nicolaeum\NovaCalendarTool\Http\Controllers')
+                ->namespace('Nicolaeum\NovaCalendarTool\Http\Controllers')
                 ->group(__DIR__.'/../routes/api.php');
 
         $this->commands([]);

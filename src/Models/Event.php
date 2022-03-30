@@ -1,46 +1,31 @@
 <?php
 
-namespace nicolaeum\NovaCalendarTool\Models;
+namespace Nicolaeum\NovaCalendarTool\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 
 class Event extends Model
 {
+    protected $guarded = ['id'];
+//    protected $table = 'property_bookings';
     protected $casts = [
-        'start' => 'datetime',
-        'end' => 'datetime'
+        'from'  => 'datetime',
+        'to'    => 'datetime'
     ];
 
-    protected $guarded = ['id'];
-
-    public function validate($data, $scenario)
+    public function getTable()
     {
-        switch ($scenario)
-        {
-            case 'create':
-            case 'update':
-                $rules = [
-                    'title' => 'required',
-                    'start' => 'required|date',
-                    'end' => 'required|date|after_or_equal:start'
-                ];
-
-                break;
-        }
-
-        return Validator::make($data, $rules);
+        return config('nova-lite-calendar-tool.model_table');
     }
 
     public function scopeFilter($query, $data)
     {
-        if ( ! empty($data['start']))
-        {
+        if (!empty($data['start'])) {
             $query->where('start', '>=', $data['start']);
         }
 
-        if ( ! empty($data['end']))
-        {
+        if (!empty($data['end'])) {
             $query->where('end', '<=', $data['end']);
         }
 

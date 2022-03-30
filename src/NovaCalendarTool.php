@@ -1,6 +1,6 @@
 <?php
 
-namespace nicolaeum\NovaCalendarTool;
+namespace Nicolaeum\NovaCalendarTool;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
