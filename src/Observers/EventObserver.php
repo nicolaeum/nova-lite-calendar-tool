@@ -1,8 +1,8 @@
 <?php
 
-namespace nicolaeum\NovaCalendarTool\Observers;
+namespace Nicolaeum\NovaCalendarTool\Observers;
 
-use nicolaeum\NovaCalendarTool\Models\Event;
+use Nicolaeum\NovaCalendarTool\Models\Event;
 use Spatie\GoogleCalendar\Event as GoogleEvent;
 
 class EventObserver
