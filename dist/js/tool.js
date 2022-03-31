@@ -12401,13 +12401,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */] /*,
-                                   EventModal*/
+        FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */],
+        EventModal: __WEBPACK_IMPORTED_MODULE_5__EventModal___default.a
     },
     data: function data() {
         return {
             calendarOptions: {
-                events: '/nova-vendor/nova-lite-calendar-tool/events',
+                events: '/nova-vendor/nova-calendar-tool/events',
                 plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
                 initialView: 'dayGridMonth',
                 locale: Nova.config.fullcalendar_locale || 'en',
@@ -30919,10 +30919,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+console.log('export default');
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EventModal',
     props: ['currentEvent', 'currentDate'],
     data: function data() {
+        console.log('this.currentEvent');
+        console.log(this.currentEvent);
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
@@ -31254,19 +31257,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "card py-6 px-6" },
-      [
-        _c("FullCalendar", {
-          ref: "fullCalendar",
-          attrs: { options: _vm.calendarOptions }
-        })
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "card py-6 px-6" },
+        [
+          _c("FullCalendar", {
+            ref: "fullCalendar",
+            attrs: { options: _vm.calendarOptions }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "transition",
+        { attrs: { name: "fade" } },
+        [
+          _vm.showModal
+            ? _c("EventModal", {
+                attrs: {
+                  currentEvent: _vm.currentEvent,
+                  currentDate: _vm.currentDate
+                },
+                on: {
+                  refreshEvents: _vm.refreshEvents,
+                  close: _vm.closeModal,
+                  confirm: _vm.saveEvent,
+                  delete: _vm.deleteEvent
+                }
+              })
+            : _vm._e()
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
