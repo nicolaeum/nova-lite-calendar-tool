@@ -14,8 +14,8 @@ class NovaCalendarTool extends Tool
      */
     public function boot()
     {
-        Nova::script('nova-calendar-tool', __DIR__.'/../dist/js/tool.js');
-        Nova::style('nova-calendar-tool', __DIR__.'/../dist/css/tool.css');
+        Nova::script('nova-lite-calendar-tool', __DIR__.'/../dist/js/tool.js');
+        Nova::style('nova-lite-calendar-tool', __DIR__.'/../dist/css/tool.css');
     }
 
     /**
