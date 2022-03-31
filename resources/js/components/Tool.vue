@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             calendarOptions: {
-                events: '/nova-vendor/nova-calendar-tool/events',
+                events: '/nova-vendor/nova-lite-calendar-tool/events',
                 plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
                 initialView: 'dayGridMonth',
                 locale: Nova.config.fullcalendar_locale || 'en',
