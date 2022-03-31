@@ -32,6 +32,13 @@ class EventCollection extends JsonResource
             ]);
         }
 
+        /*$data = [
+            'id'    => $this->id,
+            'title' => $title,
+            'start' => $map['start'] ? $this->{$map['start']} : null,
+            'end'   => $map['end'] ? $this->{$map['end']} : null,
+        ];*/
+
         $data = [
             'id'    => $this->id,
             'title' => $title,

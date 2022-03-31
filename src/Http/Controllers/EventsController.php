@@ -13,6 +13,7 @@ class EventsController
         $events = Event::filter($request->query())
             ->get();
 
-        return EventCollection::collection($events);
+//        return EventCollection::collection($events);
+        return response()->json(EventCollection::collection($events));
     }
 }
