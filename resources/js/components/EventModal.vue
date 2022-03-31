@@ -37,17 +37,15 @@
 </template>
 
 <script>
-    console.log('export default');
     export default {
         name: 'EventModal',
         props: ['currentEvent', 'currentDate'],
         data() {
-            console.log('this.currentEvent');
-            console.log(this.currentEvent);
             return {
                 title: this.currentEvent !== null ? this.currentEvent.event.title : '',
                 start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
-                end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss')
+                end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+                eventColor: '#378006'
                 // end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD') : moment(this.currentDate.date).format('YYYY-MM-DD')
                 // end: this.currentEvent !== null ? moment(this.currentEvent.event.end) : moment(this.currentDate.date).add(1, 'hour')
             }
