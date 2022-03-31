@@ -37,10 +37,13 @@
 </template>
 
 <script>
+    console.log('export default');
     export default {
         name: 'EventModal',
         props: ['currentEvent', 'currentDate'],
         data() {
+            console.log('this.currentEvent');
+            console.log(this.currentEvent);
             return {
                 title: this.currentEvent !== null ? this.currentEvent.event.title : '',
                 start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
