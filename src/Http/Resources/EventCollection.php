@@ -19,12 +19,26 @@ class EventCollection extends JsonResource
 
         $itemModel  = ToolServiceProvider::getItemModel();
         $item       = $itemModel::find($this->{config('nova-lite-calendar-tool.item_model_key_on_event_table')});
+        $title      = false;
 
-        return [
+        if ($item) {
+            $title = $item->reference;
+        }
+
+        if (!empty($map['title'])) {
+            $title = implode(' - ', [
+                $title,
+                $this->{$map['title']}
+            ]);
+        }
+
+        $data = [
             'id'    => $this->id,
-            'title' => $map['title'] ? $this->{$map['title']} : null,
-            'start' => $map['start'] ? $this->{$map['start']} : null,
-            'end'   => $map['end'] ? $this->{$map['end']} : null,
+            'title' => $title,
+            'start' => $map['start'] ? $this->{$map['start']}->toDateString() : null,
+            'end'   => $map['end'] ? $this->{$map['end']}->toDateString() : null,
         ];
+
+        return $data;
     }
 }

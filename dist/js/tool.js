@@ -30927,6 +30927,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
             end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss')
+            // end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD') : moment(this.currentDate.date).format('YYYY-MM-DD')
+            // end: this.currentEvent !== null ? moment(this.currentEvent.event.end) : moment(this.currentDate.date).add(1, 'hour')
         };
     },
 
