@@ -26,6 +26,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import allLocales from '@fullcalendar/core/locales-all';
 import EventModal from './EventModal';
 
+function randomColour() {
+  var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+
+  return coloursString[Math.floor(Math.random() * array.length)];
+}
+
 export default {
     components: {
         FullCalendar,
@@ -40,7 +46,7 @@ export default {
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: this.randomColour,
+                eventColor: randomColour,
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -85,11 +91,6 @@ export default {
         refreshEvents() {
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
-      randomColour() {
-        var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
-
-        return coloursString[Math.floor(Math.random() * array.length)];
-      }
     },
 }
 </script>
