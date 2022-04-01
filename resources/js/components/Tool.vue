@@ -29,7 +29,7 @@ import EventModal from './EventModal';
 function randomColour() {
   var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-  return coloursString[Math.floor(Math.random() * array.length)];
+  return coloursString[Math.floor(Math.random() * coloursString.length)];
 }
 
 export default {
@@ -46,7 +46,7 @@ export default {
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: randomColour,
+                eventColor: randomColour(),
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -71,15 +71,8 @@ export default {
             this.currentDate = date;
         },
         handleEventClick(event) {
-          alert('Event: ' + info.event.title);
-          alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-          alert('View: ' + info.view.type);
-
-          // change the border color just for fun
-          info.el.style.borderColor = 'red';
-
           if (event.url) {
-            window.open(event.url, "_blank");
+            window.open(event.url, '_blank');
             return false;
           }
         },

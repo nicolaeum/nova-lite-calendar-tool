@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12402,7 +12402,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function randomColour() {
     var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-    return coloursString[Math.floor(Math.random() * array.length)];
+    return coloursString[Math.floor(Math.random() * coloursString.length)];
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12419,7 +12419,7 @@ function randomColour() {
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: randomColour,
+                eventColor: randomColour(),
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -12445,15 +12445,8 @@ function randomColour() {
             this.currentDate = date;
         },
         handleEventClick: function handleEventClick(event) {
-            alert('Event: ' + info.event.title);
-            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-            alert('View: ' + info.view.type);
-
-            // change the border color just for fun
-            info.el.style.borderColor = 'red';
-
             if (event.url) {
-                window.open(event.url, "_blank");
+                window.open(event.url, '_blank');
                 return false;
             }
         },
