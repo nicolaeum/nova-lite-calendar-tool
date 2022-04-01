@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12413,7 +12413,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: '#960b57',
+                eventColor: '#960b57', // #80061c #d47486 #ab97e6
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -12449,6 +12449,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         refreshEvents: function refreshEvents() {
             this.$refs.fullCalendar.getApi().refetchEvents();
+        },
+        randomColour: function randomColour() {
+            var arr = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+
+            return array[Math.floor(Math.random() * arr.length)];
         }
     }
 });
@@ -30927,8 +30932,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
-            end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
-            eventColor: '#378006'
+            end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss')
             // end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD') : moment(this.currentDate.date).format('YYYY-MM-DD')
             // end: this.currentEvent !== null ? moment(this.currentEvent.event.end) : moment(this.currentDate.date).add(1, 'hour')
         };

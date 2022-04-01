@@ -40,7 +40,7 @@ export default {
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: '#960b57',
+                eventColor: '#960b57', // #80061c #d47486 #ab97e6
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -75,7 +75,12 @@ export default {
         },
         refreshEvents() {
             this.$refs.fullCalendar.getApi().refetchEvents();
-        }
+        },
+      randomColour() {
+        var arr = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+
+        return array[Math.floor(Math.random() * arr.length)];
+      }
     },
 }
 </script>
