@@ -72,7 +72,8 @@ export default {
         },
         handleEventClick(event) {
           if (event.url) {
-            window.open(event.url, '_blank');
+            // window.open(event.url, '_blank');
+            window.open(event.url, '_blank').focus();
             return false;
           }
         },
