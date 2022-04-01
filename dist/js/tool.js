@@ -12413,7 +12413,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: '#960b57', // #80061c #d47486 #ab97e6
+                eventColor: this.randomColour,
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -30875,7 +30875,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-45f0835e] {\n    display: block;\n}\n.btn-wrapper[data-v-45f0835e] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n}\n.btn.delete-event[data-v-45f0835e] {\n    margin-right: auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-45f0835e] {\n    display: block;\n}\n.btn-wrapper[data-v-45f0835e] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n}\n.btn.delete-event[data-v-45f0835e] {\n    margin-right: auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.fc-event-title[data-v-45f0835e] {\n  font-weight: bold !important;\n}\n", ""]);
 
 // exports
 

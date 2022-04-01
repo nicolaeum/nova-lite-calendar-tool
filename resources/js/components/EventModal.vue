@@ -126,4 +126,8 @@
         justify-content: center;
         align-items: center;
     }
+
+    .fc-event-title {
+      font-weight: bold !important;
+    }
 </style>

@@ -40,7 +40,7 @@ export default {
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: '#960b57', // #80061c #d47486 #ab97e6
+                eventColor: this.randomColour,
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
