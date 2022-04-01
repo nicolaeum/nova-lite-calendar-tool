@@ -65,8 +65,17 @@ export default {
             this.currentDate = date;
         },
         handleEventClick(event) {
-            this.showModal = false;
-            this.currentEvent = event;
+          alert('Event: ' + info.event.title);
+          alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+          alert('View: ' + info.view.type);
+
+          // change the border color just for fun
+          info.el.style.borderColor = 'red';
+
+          if (event.url) {
+            window.open(event.url, "_blank");
+            return false;
+          }
         },
         closeModal() {
             this.showModal = false;
@@ -77,9 +86,9 @@ export default {
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
       randomColour() {
-        var arr = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+        var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-        return array[Math.floor(Math.random() * arr.length)];
+        return coloursString[Math.floor(Math.random() * array.length)];
       }
     },
 }

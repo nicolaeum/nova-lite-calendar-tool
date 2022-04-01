@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12439,8 +12439,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.currentDate = date;
         },
         handleEventClick: function handleEventClick(event) {
-            this.showModal = false;
-            this.currentEvent = event;
+            alert('Event: ' + info.event.title);
+            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+            alert('View: ' + info.view.type);
+
+            // change the border color just for fun
+            info.el.style.borderColor = 'red';
+
+            if (event.url) {
+                window.open(event.url, "_blank");
+                return false;
+            }
         },
         closeModal: function closeModal() {
             this.showModal = false;
@@ -12451,9 +12460,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
         randomColour: function randomColour() {
-            var arr = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+            var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-            return array[Math.floor(Math.random() * arr.length)];
+            return coloursString[Math.floor(Math.random() * array.length)];
         }
     }
 });
@@ -30932,9 +30941,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
-            end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss')
-            // end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD') : moment(this.currentDate.date).format('YYYY-MM-DD')
-            // end: this.currentEvent !== null ? moment(this.currentEvent.event.end) : moment(this.currentDate.date).add(1, 'hour')
+            end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+            url: this.currentEvent !== null ? this.currentEvent.event.url : ''
         };
     },
 

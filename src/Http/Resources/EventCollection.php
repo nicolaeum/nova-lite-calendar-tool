@@ -44,6 +44,9 @@ class EventCollection extends JsonResource
             'title' => $title,
             'start' => $map['start'] ? $this->{$map['start']}->toDateString() : null,
             'end'   => $map['end'] ? $this->{$map['end']}->toDateString() : null,
+            'url'   => (config('nova-lite-calendar-tool.resource_to_link_on_calendar_event'))
+                ? url('nova/' . config('nova-lite-calendar-tool.resource_to_link_on_calendar_event') . '/' . $this->id)
+                : null
         ];
 
         return $data;
