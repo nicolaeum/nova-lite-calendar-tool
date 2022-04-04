@@ -1,31 +1,19 @@
 <template>
-    <div class="flex mt-6 mb-6">
-      <select class="form-control form-select rounded-r-none"
-              @change="onChange($event)"
-              v-model="customCommand.prop_id"
-      >
-        <option :value="key" v-for="label,key in items_id">{{ label }}</option>
-      </select>
-<!--      <input type="text" v-model="customCommand.command" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">-->
-<!--      <input type="text" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">
-      <button type="button" class="items-right btn btn-default btn-primary" @click="runCustomCommand">Run</button>-->
-    </div>
     <div>
         <div class="card py-6 px-6">
+            <div class="flex mt-6 mb-6" v-if="! Array.isArray(items_id)">
+              <select class="form-control form-select rounded-r-none"
+                      @change="onChange($event)"
+                      v-model="customCommand.prop_id"
+              >
+                <option :value="key" v-for="label,key in items_id">{{ label }}</option>
+              </select>
+              <!--      <input type="text" v-model="customCommand.command" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">-->
+              <!--      <input type="text" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">
+                    <button type="button" class="items-right btn btn-default btn-primary" @click="runCustomCommand">Run</button>-->
+            </div>
             <FullCalendar ref="fullCalendar" :options="calendarOptions" />
         </div>
-
-        <transition name="fade">
-            <EventModal
-                v-if="showModal"
-                :currentEvent="currentEvent"
-                :currentDate="currentDate"
-                @refreshEvents="refreshEvents"
-                @close="closeModal"
-                @confirm="saveEvent"
-                @delete="deleteEvent"
-            />
-        </transition>
     </div>
 </template>
 
