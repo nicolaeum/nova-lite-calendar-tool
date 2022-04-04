@@ -31016,11 +31016,15 @@ var render = function() {
                   }
                 },
                 [
-                  _c(
-                    "option",
-                    { attrs: { value: "100", selected: "selected" } },
-                    [_vm._v("100 montaditos")]
-                  ),
+                  _c("option", { attrs: { value: "", selected: "selected" } }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm.config(
+                          "nova-lite-calendar-tool.items_dropdown_placeholder"
+                        )
+                      )
+                    )
+                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.itemsId, function(label, key) {
                     return _c("option", { domProps: { value: key } }, [

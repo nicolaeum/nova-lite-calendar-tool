@@ -6,7 +6,7 @@
                       @change="onChange($event)"
                       v-model="customCommand.prop_id"
               >
-                <option value="100" selected="selected">100 montaditos</option>
+                <option value="" selected="selected">{{ config('nova-lite-calendar-tool.items_dropdown_placeholder')}}</option>
                 <option :value="key" v-for="label,key in itemsId">{{ label }}</option>
               </select>
             </div>
