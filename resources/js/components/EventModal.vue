@@ -1,4 +1,4 @@
-<template>
+<!--<template>
     <modal @modal-close="handleClose" classWhitelist="flatpickr-calendar">
         <form
             @submit.prevent="handleSave"
@@ -34,13 +34,15 @@
             </div>
         </form>
     </modal>
-</template>
+</template>-->
 
 <script>
     export default {
         name: 'EventModal',
-        props: ['currentEvent', 'currentDate'],
+        props: ['currentEvent', 'currentDate', 'customCommand'],
         data() {
+            console.log('currentEvent');
+            console.log(this.currentEvent);
             return {
               title: this.currentEvent !== null ? this.currentEvent.event.title : '',
               start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
@@ -49,65 +51,7 @@
               property_id: this.currentEvent !== null ? this.currentEvent.event.property_id : '',
               items_id: this.currentEvent !== null ? this.currentEvent.event.items_id : ''
             }
-        },
-        methods: {
-            changeStart(value) {
-                this.start = value;
-            },
-            changeEnd(value) {
-                this.end = value;
-            },
-            handleClose() {
-                this.$emit('close');
-            },
-            handleDelete() {
-                Nova.request()
-                    .delete('/nova-vendor/nova-lite-calendar-tool/events/'+this.currentEvent.event.id+'/destroy')
-                    .then(response => {
-                        if (response.data.success) {
-                            this.$toasted.show('Event has been deleted', { type: 'success' });
-                            this.$emit('close');
-                            this.$emit('refreshEvents');
-                        }
-                    })
-                    .catch(response => this.$toasted.show('Something went wrong', { type: 'error' }));
-            },
-            handleSave() {
-                let data = {
-                    title: this.title,
-                    start: this.start,
-                    end: this.end
-                };
-
-                if (this.currentEvent === null) {
-                    Nova.request()
-                        .post('/nova-vendor/nova-lite-calendar-tool/events/store', data)
-                        .then(response => {
-                            if (response.data.success) {
-                                this.$toasted.show('Event has been created', { type: 'success' });
-                                this.$emit('close');
-                                this.$emit('refreshEvents');
-                            } else if (response.data.error === true) {
-                                this.$toasted.show(response.data.message, { type: 'error' });
-                            }
-                        })
-                        .catch(response => this.$toasted.show('Something went wrong', { type: 'error' }));
-                } else if (this.currentEvent !== null) {
-                    Nova.request()
-                        .put('/nova-vendor/nova-lite-calendar-tool/events/'+this.currentEvent.event.id+'/update', data)
-                        .then(response => {
-                            if (response.data.success) {
-                                this.$toasted.show('Event has been updated', { type: 'success' });
-                                this.$emit('close');
-                                this.$emit('refreshEvents');
-                            } else if (response.data.error === true) {
-                                this.$toasted.show(response.data.message, { type: 'error' });
-                            }
-                        })
-                        .catch(response => this.$toasted.show('Something went wrong', { type: 'error' }));
-                }
-            },
-        },
+        }
     }
 </script>
 

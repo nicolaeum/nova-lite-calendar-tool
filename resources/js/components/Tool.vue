@@ -6,6 +6,7 @@
                       @change="onChange($event)"
                       v-model="customCommand.prop_id"
               >
+                <option value="100" selected="selected">100 montaditos</option>
                 <option :value="key" v-for="label,key in items_id">{{ label }}</option>
               </select>
               <!--      <input type="text" v-model="customCommand.command" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">-->
@@ -52,7 +53,6 @@ export default {
                 plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
                 initialView: 'dayGridMonth',
                 locale: Nova.config.fullcalendar_locale || 'en',
-                dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
                 // eventColor: randomColour(),
                 eventColor: '#960b57',
@@ -71,7 +71,6 @@ export default {
             },
             currentEvent: null,
             currentDate: null,
-            showModal: false,
             customCommand : {
               prop_id : ''
             }
@@ -79,20 +78,17 @@ export default {
     },
     methods: {
         onChange(event) {
-          console.log('onChange')
-          console.log(event.target.value)
+          console.log('onChange');
+          console.log(event.target.value);
         },
         runCustomCommand() {
-          console.log('runCustomCommand')
+          console.log('runCustomCommand');
+          this.$emit('refreshEvents');
           /*if(!this.customCommand.command){
             this.$toasted.show('Please enter a command', {type: 'error'});
             return;
           }*/
           /*this.openModal( this.customCommand );*/
-        },
-        handleDateClick(date) {
-            this.showModal = false;
-            this.currentDate = date;
         },
         handleEventClick(event) {
           if (event.url) {
@@ -101,12 +97,8 @@ export default {
             return false;
           }
         },
-        closeModal() {
-            this.showModal = false;
-            this.currentEvent = null;
-            this.currentDate = null;
-        },
         refreshEvents() {
+            console.log('refreshEvents');
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
     },

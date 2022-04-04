@@ -12218,7 +12218,7 @@ var main = Object(__WEBPACK_IMPORTED_MODULE_1__fullcalendar_common__["_15" /* cr
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -12246,7 +12246,7 @@ var normalizeComponent = __webpack_require__(8)
 /* script */
 var __vue_script__ = __webpack_require__(19)
 /* template */
-var __vue_template__ = __webpack_require__(46)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12390,6 +12390,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12399,91 +12400,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function randomColour() {
-    var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+  var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-    return coloursString[Math.floor(Math.random() * coloursString.length)];
+  return coloursString[Math.floor(Math.random() * coloursString.length)];
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */],
-        EventModal: __WEBPACK_IMPORTED_MODULE_5__EventModal___default.a
-    },
-    data: function data() {
-        return {
-            calendarOptions: {
-                // events: '/nova-vendor/nova-lite-calendar-tool/events',
-                events: {
-                    url: '/nova-vendor/nova-lite-calendar-tool/events',
-                    extraParams: {
-                        itemPropId: '47'
-                    },
-                    failure: function failure() {
-                        alert('there was an error while fetching events!');
-                    }
-                },
-                plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
-                initialView: 'dayGridMonth',
-                locale: Nova.config.fullcalendar_locale || 'en',
-                dateClick: this.handleDateClick,
-                eventClick: this.handleEventClick,
-                // eventColor: randomColour(),
-                eventColor: '#960b57',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
-                },
-                eventTimeFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false
-                },
-                timeFormat: 'H(:mm)'
-            },
-            currentEvent: null,
-            currentDate: null,
-            showModal: false,
-            customCommand: {
-                prop_id: ''
-            }
-        };
-    },
+  components: {
+    FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */],
+    EventModal: __WEBPACK_IMPORTED_MODULE_5__EventModal___default.a
+  },
+  data: function data() {
+    return {
+      calendarOptions: {
+        // events: '/nova-vendor/nova-lite-calendar-tool/events',
+        events: {
+          url: '/nova-vendor/nova-lite-calendar-tool/events',
+          extraParams: {
+            itemPropId: '47'
+          },
+          failure: function failure() {
+            alert('there was an error while fetching events!');
+          }
+        },
+        plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
+        initialView: 'dayGridMonth',
+        locale: Nova.config.fullcalendar_locale || 'en',
+        eventClick: this.handleEventClick,
+        // eventColor: randomColour(),
+        eventColor: '#960b57',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
+        },
+        eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        },
+        timeFormat: 'H(:mm)'
+      },
+      currentEvent: null,
+      currentDate: null,
+      customCommand: {
+        prop_id: ''
+      }
+    };
+  },
 
-    methods: {
-        onChange: function onChange(event) {
-            console.log('onChange');
-            console.log(event.target.value);
-        },
-        runCustomCommand: function runCustomCommand() {
-            console.log('runCustomCommand');
-            /*if(!this.customCommand.command){
-              this.$toasted.show('Please enter a command', {type: 'error'});
-              return;
-            }*/
-            /*this.openModal( this.customCommand );*/
-        },
-        handleDateClick: function handleDateClick(date) {
-            this.showModal = false;
-            this.currentDate = date;
-        },
-        handleEventClick: function handleEventClick(event) {
-            if (event.url) {
-                // window.open(event.url, '_blank');
-                window.open(event.url, '_blank').focus();
-                return false;
-            }
-        },
-        closeModal: function closeModal() {
-            this.showModal = false;
-            this.currentEvent = null;
-            this.currentDate = null;
-        },
-        refreshEvents: function refreshEvents() {
-            this.$refs.fullCalendar.getApi().refetchEvents();
-        }
+  methods: {
+    onChange: function onChange(event) {
+      console.log('onChange');
+      console.log(event.target.value);
+    },
+    runCustomCommand: function runCustomCommand() {
+      console.log('runCustomCommand');
+      this.$emit('refreshEvents');
+      /*if(!this.customCommand.command){
+        this.$toasted.show('Please enter a command', {type: 'error'});
+        return;
+      }*/
+      /*this.openModal( this.customCommand );*/
+    },
+    handleEventClick: function handleEventClick(event) {
+      if (event.url) {
+        // window.open(event.url, '_blank');
+        window.open(event.url, '_blank').focus();
+        return false;
+      }
+    },
+    refreshEvents: function refreshEvents() {
+      console.log('refreshEvents');
+      this.$refs.fullCalendar.getApi().refetchEvents();
     }
+  }
 });
 
 /***/ }),
@@ -30830,7 +30822,7 @@ var normalizeComponent = __webpack_require__(8)
 /* script */
 var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = null
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -30955,8 +30947,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EventModal',
-    props: ['currentEvent', 'currentDate'],
+    props: ['currentEvent', 'currentDate', 'customCommand'],
     data: function data() {
+        console.log('currentEvent');
+        console.log(this.currentEvent);
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
@@ -30965,324 +30959,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             property_id: this.currentEvent !== null ? this.currentEvent.event.property_id : '',
             items_id: this.currentEvent !== null ? this.currentEvent.event.items_id : ''
         };
-    },
-
-    methods: {
-        changeStart: function changeStart(value) {
-            this.start = value;
-        },
-        changeEnd: function changeEnd(value) {
-            this.end = value;
-        },
-        handleClose: function handleClose() {
-            this.$emit('close');
-        },
-        handleDelete: function handleDelete() {
-            var _this = this;
-
-            Nova.request().delete('/nova-vendor/nova-lite-calendar-tool/events/' + this.currentEvent.event.id + '/destroy').then(function (response) {
-                if (response.data.success) {
-                    _this.$toasted.show('Event has been deleted', { type: 'success' });
-                    _this.$emit('close');
-                    _this.$emit('refreshEvents');
-                }
-            }).catch(function (response) {
-                return _this.$toasted.show('Something went wrong', { type: 'error' });
-            });
-        },
-        handleSave: function handleSave() {
-            var _this2 = this;
-
-            var data = {
-                title: this.title,
-                start: this.start,
-                end: this.end
-            };
-
-            if (this.currentEvent === null) {
-                Nova.request().post('/nova-vendor/nova-lite-calendar-tool/events/store', data).then(function (response) {
-                    if (response.data.success) {
-                        _this2.$toasted.show('Event has been created', { type: 'success' });
-                        _this2.$emit('close');
-                        _this2.$emit('refreshEvents');
-                    } else if (response.data.error === true) {
-                        _this2.$toasted.show(response.data.message, { type: 'error' });
-                    }
-                }).catch(function (response) {
-                    return _this2.$toasted.show('Something went wrong', { type: 'error' });
-                });
-            } else if (this.currentEvent !== null) {
-                Nova.request().put('/nova-vendor/nova-lite-calendar-tool/events/' + this.currentEvent.event.id + '/update', data).then(function (response) {
-                    if (response.data.success) {
-                        _this2.$toasted.show('Event has been updated', { type: 'success' });
-                        _this2.$emit('close');
-                        _this2.$emit('refreshEvents');
-                    } else if (response.data.error === true) {
-                        _this2.$toasted.show(response.data.message, { type: 'error' });
-                    }
-                }).catch(function (response) {
-                    return _this2.$toasted.show('Something went wrong', { type: 'error' });
-                });
-            }
-        }
     }
 });
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("modal", {
-    attrs: { classWhitelist: "flatpickr-calendar" },
-    on: { "modal-close": _vm.handleClose },
-    scopedSlots: _vm._u(
-      [
-        {
-          key: "default",
-          fn: function(props) {
-            return _c(
-              "form",
-              {
-                staticClass: "bg-white rounded-lg shadow-lg overflow-hidden",
-                staticStyle: { width: "460px" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.handleSave.apply(null, arguments)
-                  }
-                }
-              },
-              [
-                _vm._t(
-                  "default",
-                  function() {
-                    return [
-                      _c(
-                        "div",
-                        { staticClass: "p-8" },
-                        [
-                          !_vm.currentEvent
-                            ? _c(
-                                "heading",
-                                { staticClass: "mb-6", attrs: { level: 2 } },
-                                [_vm._v(_vm._s(_vm.__("Create Event")))]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.currentEvent
-                            ? _c(
-                                "heading",
-                                { staticClass: "mb-6", attrs: { level: 2 } },
-                                [_vm._v(_vm._s(_vm.__("Edit Event")))]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "border-b border-40 pb-4" },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "mb-2 text-80 leading-tight",
-                                  attrs: { for: "title" }
-                                },
-                                [_vm._v("Title:")]
-                              ),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.title,
-                                    expression: "title"
-                                  }
-                                ],
-                                staticClass:
-                                  "w-full form-control form-input form-input-bordered",
-                                attrs: { name: "title" },
-                                domProps: { value: _vm.title },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.title = $event.target.value
-                                  }
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "border-b border-40 py-4" },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "mb-2 text-80 leading-tight",
-                                  attrs: { for: "start" }
-                                },
-                                [_vm._v("Start:")]
-                              ),
-                              _vm._v(" "),
-                              _c("date-time-picker", {
-                                staticClass:
-                                  "w-full form-control form-input form-input-bordered",
-                                attrs: { name: "start", autocomplete: "off" },
-                                on: { change: _vm.changeStart },
-                                model: {
-                                  value: _vm.start,
-                                  callback: function($$v) {
-                                    _vm.start = $$v
-                                  },
-                                  expression: "start"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "border-b border-40 py-4" },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "mb-2 text-80",
-                                  attrs: { for: "end" }
-                                },
-                                [_vm._v("End:")]
-                              ),
-                              _vm._v(" "),
-                              _c("date-time-picker", {
-                                staticClass:
-                                  "w-full form-control form-input form-input-bordered",
-                                attrs: { name: "end", autocomplete: "off" },
-                                on: { change: _vm.changeEnd },
-                                model: {
-                                  value: _vm.end,
-                                  callback: function($$v) {
-                                    _vm.end = $$v
-                                  },
-                                  expression: "end"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  },
-                  { uppercaseMode: _vm.uppercaseMode, mode: _vm.mode }
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "btn-wrapper bg-30 px-6 py-3" }, [
-                  _vm.currentEvent
-                    ? _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-default btn-danger delete-event",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.handleDelete.apply(null, arguments)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "fill-current",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "20",
-                                height: "20",
-                                viewBox: "0 0 20 20",
-                                "aria-labelledby": "delete",
-                                role: "presentation"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "fill-rule": "nonzero",
-                                  d:
-                                    "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn text-80 font-normal h-9 px-3 btn-link",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.handleClose.apply(null, arguments)
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.__("Cancel")))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      ref: "saveButton",
-                      staticClass: "btn btn-default btn-primary ml-3",
-                      attrs: { type: "submit" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.handleSave.apply(null, arguments)
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.__("Save")))]
-                  )
-                ])
-              ],
-              2
-            )
-          }
-        }
-      ],
-      null,
-      true
-    )
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-45f0835e", module.exports)
-  }
-}
-
-/***/ }),
-/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -31333,12 +31014,20 @@ var render = function() {
                     ]
                   }
                 },
-                _vm._l(_vm.items_id, function(label, key) {
-                  return _c("option", { domProps: { value: key } }, [
-                    _vm._v(_vm._s(label))
-                  ])
-                }),
-                0
+                [
+                  _c(
+                    "option",
+                    { attrs: { value: "100", selected: "selected" } },
+                    [_vm._v("100 montaditos")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.items_id, function(label, key) {
+                    return _c("option", { domProps: { value: key } }, [
+                      _vm._v(_vm._s(label))
+                    ])
+                  })
+                ],
+                2
               )
             ])
           : _vm._e(),
@@ -31363,7 +31052,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
