@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="card py-6 px-6">
-            <div class="flex mt-6 mb-6" v-if="! Array.isArray(items_id)">
+            <div class="flex mt-6 mb-6" v-if="! Array.isArray(itemsId)">
               <select class="form-control form-select rounded-r-none"
                       @change="onChange($event)"
                       v-model="customCommand.prop_id"
               >
                 <option value="100" selected="selected">100 montaditos</option>
-                <option :value="key" v-for="label,key in items_id">{{ label }}</option>
+                <option :value="key" v-for="label,key in itemsId">{{ label }}</option>
               </select>
             </div>
             <FullCalendar ref="fullCalendar" :options="calendarOptions" />
@@ -78,15 +78,8 @@ export default {
         onChange(event) {
           console.log('onChange');
           console.log(event.target.value);
-        },
-        runCustomCommand() {
-          console.log('runCustomCommand');
+          this.calendarOptions.events.extraParams.itemPropId = event.target.value;
           this.$emit('refreshEvents');
-          /*if(!this.customCommand.command){
-            this.$toasted.show('Please enter a command', {type: 'error'});
-            return;
-          }*/
-          /*this.openModal( this.customCommand );*/
         },
         handleEventClick(event) {
           if (event.url) {
@@ -107,25 +100,8 @@ export default {
 
                   this.itemsId = response.data;
 
-                  console.log('this');
-                  console.log(this);
-                  /*response.data.commands.forEach(command => {
-                    let group = command.group;
-                    if (this.groups.indexOf(group) < 0) {
-                      this.groups.push(group);
-                    }
-                  });
-
-
-                  this.commands = response.data.commands;
-                  this.history = response.data.history;
-                  this.help = response.data.help;
-                  this.heading = response.data.heading;
-                  this.customCommands = response.data.custom_commands;
-
-                  if(this.customCommands){
-                    this.customCommand.command_type = Object.keys(this.customCommands)[0];
-                  }*/
+                  console.log('itemsId');
+                  console.log(this.itemsId);
                 })
         }
     },

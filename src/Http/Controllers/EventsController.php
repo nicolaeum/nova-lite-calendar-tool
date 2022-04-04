@@ -22,7 +22,7 @@ class EventsController
     {
         $itemModel  = ToolServiceProvider::getItemModel();
         $rentals    = $itemModel::where(
-            $this->{config('nova-lite-calendar-tool.item_field_to_query_dropdown_items')},
+            config('nova-lite-calendar-tool.item_field_to_query_dropdown_items'),
             true
         )->get();
 

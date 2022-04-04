@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12452,15 +12452,8 @@ function randomColour() {
     onChange: function onChange(event) {
       console.log('onChange');
       console.log(event.target.value);
-    },
-    runCustomCommand: function runCustomCommand() {
-      console.log('runCustomCommand');
+      this.calendarOptions.events.extraParams.itemPropId = event.target.value;
       this.$emit('refreshEvents');
-      /*if(!this.customCommand.command){
-        this.$toasted.show('Please enter a command', {type: 'error'});
-        return;
-      }*/
-      /*this.openModal( this.customCommand );*/
     },
     handleEventClick: function handleEventClick(event) {
       if (event.url) {
@@ -12482,22 +12475,8 @@ function randomColour() {
 
         _this.itemsId = response.data;
 
-        console.log('this');
-        console.log(_this);
-        /*response.data.commands.forEach(command => {
-          let group = command.group;
-          if (this.groups.indexOf(group) < 0) {
-            this.groups.push(group);
-          }
-        });
-          this.commands = response.data.commands;
-        this.history = response.data.history;
-        this.help = response.data.help;
-        this.heading = response.data.heading;
-        this.customCommands = response.data.custom_commands;
-         if(this.customCommands){
-          this.customCommand.command_type = Object.keys(this.customCommands)[0];
-        }*/
+        console.log('itemsId');
+        console.log(_this.itemsId);
       });
     }
   },
@@ -31001,7 +30980,7 @@ var render = function() {
       "div",
       { staticClass: "card py-6 px-6" },
       [
-        !Array.isArray(_vm.items_id)
+        !Array.isArray(_vm.itemsId)
           ? _c("div", { staticClass: "flex mt-6 mb-6" }, [
               _c(
                 "select",
@@ -31047,7 +31026,7 @@ var render = function() {
                     [_vm._v("100 montaditos")]
                   ),
                   _vm._v(" "),
-                  _vm._l(_vm.items_id, function(label, key) {
+                  _vm._l(_vm.itemsId, function(label, key) {
                     return _c("option", { domProps: { value: key } }, [
                       _vm._v(_vm._s(label))
                     ])
