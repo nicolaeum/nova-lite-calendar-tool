@@ -78,8 +78,6 @@ export default {
     },
     methods: {
         onChange(event) {
-          console.log('onChange');
-          console.log(event.target.value);
           this.calendarOptions.events.extraParams.itemSelectedId = event.target.value;
           this.refreshEvents();
         },
@@ -91,15 +89,12 @@ export default {
           }
         },
         refreshEvents() {
-            console.log('refreshEvents');
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
         getItemsForSelect() {
             Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
                 .then(response => {
                   this.itemsId = response.data;
-                  /*console.log('itemsId');
-                  console.log(this.itemsId);*/
                 })
         }
     },
