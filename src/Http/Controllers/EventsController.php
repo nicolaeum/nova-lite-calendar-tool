@@ -13,14 +13,18 @@ class EventsController
         $events = Event::filter($request->query())
             ->get();
 
-        $items_id = [
+//        return EventCollection::collection($events);
+        return response()->json(EventCollection::collection($events));
+    }
+
+    public function items(Request $request)
+    {
+        $itemIds = [
             1 => 'Uno',
             2 => 'Dos',
             3 => 'Tres',
             4 => 'Cuatro'
         ];
-
-//        return EventCollection::collection($events);
-        return response()->json(['items_id' => $items_id, 'events' => EventCollection::collection($events)]);
+        return response()->json(EventCollection::collection($itemIds));
     }
 }

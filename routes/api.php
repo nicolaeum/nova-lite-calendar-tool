@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/events', 'EventsController@index');
+Route::get('/items', 'EventsController@items');

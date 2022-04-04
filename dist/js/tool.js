@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12446,6 +12446,9 @@ function randomColour() {
       currentDate: null,
       customCommand: {
         prop_id: ''
+      },
+      itemsId: {
+        rentals: this.methods.getItemsForSelect()
       }
     };
   },
@@ -12474,6 +12477,28 @@ function randomColour() {
     refreshEvents: function refreshEvents() {
       console.log('refreshEvents');
       this.$refs.fullCalendar.getApi().refetchEvents();
+    },
+    getItemsForSelect: function getItemsForSelect() {
+      Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items').then(function (response) {
+        console.log('nova request');
+        console.log(response.data);
+
+        return [45, 46, 47];
+        /*response.data.commands.forEach(command => {
+          let group = command.group;
+          if (this.groups.indexOf(group) < 0) {
+            this.groups.push(group);
+          }
+        });
+          this.commands = response.data.commands;
+        this.history = response.data.history;
+        this.help = response.data.help;
+        this.heading = response.data.heading;
+        this.customCommands = response.data.custom_commands;
+         if(this.customCommands){
+          this.customCommand.command_type = Object.keys(this.customCommands)[0];
+        }*/
+      });
     }
   }
 });
@@ -30947,17 +30972,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EventModal',
-    props: ['currentEvent', 'currentDate', 'customCommand'],
+    props: ['currentEvent', 'currentDate', 'customCommand', 'itemsId'],
     data: function data() {
-        console.log('currentEvent');
-        console.log(this.currentEvent);
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
             start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
             end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
             url: this.currentEvent !== null ? this.currentEvent.event.url : '',
             property_id: this.currentEvent !== null ? this.currentEvent.event.property_id : '',
-            items_id: this.currentEvent !== null ? this.currentEvent.event.items_id : ''
+            items_id: this.itemsId !== null ? this.itemsId.rentals : ''
         };
     }
 });
