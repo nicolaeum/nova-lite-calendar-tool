@@ -42,9 +42,8 @@ export default {
                 // events: '/nova-vendor/nova-lite-calendar-tool/events',
                 events: {
                   url: '/nova-vendor/nova-lite-calendar-tool/events',
-                  method: 'POST',
                   extraParams: {
-                    itemPropId: '4'
+                    itemPropId: '47'
                   },
                   failure: function() {
                     alert('there was an error while fetching events!');
