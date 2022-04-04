@@ -2,11 +2,13 @@
     <div>
         <div class="card py-6 px-6">
             <div class="flex mt-6 mb-6" v-if="! Array.isArray(itemsId)">
-              <select class="form-control form-select rounded-r-none"
+              <label class="inline-block text-80 pt-2 leading-tight pr-2">
+                {{ itemsDropdownPlaceholder}}
+              </label>
+              <select class="form-control form-select"
                       @change="onChange($event)"
                       v-model="itemId"
               >
-                <option value="" selected="selected">{{ itemsDropdownPlaceholder}}</option>
                 <option :value="key" v-for="label,key in itemsId">{{ label }}</option>
               </select>
             </div>
