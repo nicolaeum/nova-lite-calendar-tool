@@ -105,6 +105,13 @@ export default {
     },
     mounted() {
       this.getItemsForSelect();
+    },
+    created() {
+      let uri = window.location.search.substring(1);
+      let params = new URLSearchParams(uri);
+      console.log('params');
+      console.log(params);
+      // console.log(params.get("var_name"));
     }
 }
 </script>
