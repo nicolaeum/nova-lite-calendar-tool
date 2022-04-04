@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12447,9 +12447,7 @@ function randomColour() {
       customCommand: {
         prop_id: ''
       },
-      itemsId: {
-        rentals: this.methods.getItemsForSelect()
-      }
+      itemsId: null
     };
   },
 
@@ -12479,28 +12477,35 @@ function randomColour() {
       this.$refs.fullCalendar.getApi().refetchEvents();
     },
     getItemsForSelect: function getItemsForSelect() {
-      return [45, 46, 47];
-      /*return Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
-          .then(response => {
-            console.log('nova request');
-            console.log(response.data);
-             return [45, 46, 47];
-            /!*response.data.commands.forEach(command => {
-              let group = command.group;
-              if (this.groups.indexOf(group) < 0) {
-                this.groups.push(group);
-              }
-            });
-              this.commands = response.data.commands;
-            this.history = response.data.history;
-            this.help = response.data.help;
-            this.heading = response.data.heading;
-            this.customCommands = response.data.custom_commands;
-             if(this.customCommands){
-              this.customCommand.command_type = Object.keys(this.customCommands)[0];
-            }*!/
-          })*/
+      var _this = this;
+
+      Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items').then(function (response) {
+        console.log('nova request');
+        console.log(response.data);
+
+        _this.itemsId = response.data;
+
+        console.log('this');
+        console.log(_this);
+        /*response.data.commands.forEach(command => {
+          let group = command.group;
+          if (this.groups.indexOf(group) < 0) {
+            this.groups.push(group);
+          }
+        });
+          this.commands = response.data.commands;
+        this.history = response.data.history;
+        this.help = response.data.help;
+        this.heading = response.data.heading;
+        this.customCommands = response.data.custom_commands;
+         if(this.customCommands){
+          this.customCommand.command_type = Object.keys(this.customCommands)[0];
+        }*/
+      });
     }
+  },
+  mounted: function mounted() {
+    this.getItemsForSelect();
   }
 });
 

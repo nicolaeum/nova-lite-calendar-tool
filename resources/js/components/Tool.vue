@@ -74,9 +74,7 @@ export default {
             customCommand : {
               prop_id : ''
             },
-            itemsId : {
-              rentals: this.methods.getItemsForSelect()
-            }
+            itemsId : null
         }
     },
     methods: {
@@ -105,33 +103,38 @@ export default {
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
         getItemsForSelect() {
-          return [45, 46, 47];
-          /*return Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
-              .then(response => {
-                console.log('nova request');
-                console.log(response.data);
+            Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
+                .then(response => {
+                  console.log('nova request');
+                  console.log(response.data);
 
-                return [45, 46, 47];
-                /!*response.data.commands.forEach(command => {
-                  let group = command.group;
-                  if (this.groups.indexOf(group) < 0) {
-                    this.groups.push(group);
-                  }
-                });
+                  this.itemsId = response.data;
+
+                  console.log('this');
+                  console.log(this);
+                  /*response.data.commands.forEach(command => {
+                    let group = command.group;
+                    if (this.groups.indexOf(group) < 0) {
+                      this.groups.push(group);
+                    }
+                  });
 
 
-                this.commands = response.data.commands;
-                this.history = response.data.history;
-                this.help = response.data.help;
-                this.heading = response.data.heading;
-                this.customCommands = response.data.custom_commands;
+                  this.commands = response.data.commands;
+                  this.history = response.data.history;
+                  this.help = response.data.help;
+                  this.heading = response.data.heading;
+                  this.customCommands = response.data.custom_commands;
 
-                if(this.customCommands){
-                  this.customCommand.command_type = Object.keys(this.customCommands)[0];
-                }*!/
-              })*/
+                  if(this.customCommands){
+                    this.customCommand.command_type = Object.keys(this.customCommands)[0];
+                  }*/
+                })
         }
     },
+    mounted() {
+      this.getItemsForSelect();
+    }
 }
 </script>
 
