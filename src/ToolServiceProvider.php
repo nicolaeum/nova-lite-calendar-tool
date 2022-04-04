@@ -34,7 +34,8 @@ class ToolServiceProvider extends ServiceProvider
 
         Nova::serving(function (ServingNova $event) {
             Nova::provideToScript([
-                'fullcalendar_locale' => config('nova-lite-calendar-tool.fullcalendar_locale'),
+                'fullcalendar_locale'           => config('nova-lite-calendar-tool.fullcalendar_locale'),
+                'items_dropdown_placeholder'    => config('nova-lite-calendar-tool.items_dropdown_placeholder'),
             ]);
         });
     }

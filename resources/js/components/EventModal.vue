@@ -39,7 +39,7 @@
 <script>
     export default {
         name: 'EventModal',
-        props: ['currentEvent', 'currentDate', 'customCommand', 'itemsId'],
+        props: ['currentEvent', 'currentDate', 'itemsId', 'itemId'],
         data() {
             return {
               title: this.currentEvent !== null ? this.currentEvent.event.title : '',

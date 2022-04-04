@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12397,88 +12397,87 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function randomColour() {
-  var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
+    var coloursString = ['#960b57', '#80061c', '#d47486', '#ab97e6'];
 
-  return coloursString[Math.floor(Math.random() * coloursString.length)];
+    return coloursString[Math.floor(Math.random() * coloursString.length)];
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */],
-    EventModal: __WEBPACK_IMPORTED_MODULE_5__EventModal___default.a
-  },
-  data: function data() {
-    return {
-      calendarOptions: {
-        // events: '/nova-vendor/nova-lite-calendar-tool/events',
-        events: {
-          url: '/nova-vendor/nova-lite-calendar-tool/events',
-          extraParams: {
-            itemSelectedId: ''
-          },
-          failure: function failure() {
-            alert('there was an error while fetching events!');
-          }
-        },
-        plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
-        initialView: 'dayGridMonth',
-        locale: Nova.config.fullcalendar_locale || 'en',
-        eventClick: this.handleEventClick,
-        // eventColor: randomColour(),
-        eventColor: '#960b57',
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
-        },
-        eventTimeFormat: {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false
-        },
-        timeFormat: 'H(:mm)'
-      },
-      currentEvent: null,
-      currentDate: null,
-      customCommand: {
-        prop_id: ''
-      },
-      itemsId: null
-    };
-  },
+    components: {
+        FullCalendar: __WEBPACK_IMPORTED_MODULE_0__fullcalendar_vue__["a" /* default */],
+        EventModal: __WEBPACK_IMPORTED_MODULE_5__EventModal___default.a
+    },
+    data: function data() {
+        return {
+            calendarOptions: {
+                // events: '/nova-vendor/nova-lite-calendar-tool/events',
+                events: {
+                    url: '/nova-vendor/nova-lite-calendar-tool/events',
+                    extraParams: {
+                        itemSelectedId: ''
+                    },
+                    failure: function failure() {
+                        alert('there was an error while fetching events!');
+                    }
+                },
+                plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
+                initialView: 'dayGridMonth',
+                locale: Nova.config.fullcalendar_locale || 'en',
+                eventClick: this.handleEventClick,
+                // eventColor: randomColour(),
+                eventColor: '#960b57',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
+                },
+                eventTimeFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                },
+                timeFormat: 'H(:mm)'
+            },
+            currentEvent: null,
+            currentDate: null,
+            itemId: null,
+            itemsId: null,
+            itemsDropdownPlaceholder: Nova.config.items_dropdown_placeholder
+        };
+    },
 
-  methods: {
-    onChange: function onChange(event) {
-      console.log('onChange');
-      console.log(event.target.value);
-      this.calendarOptions.events.extraParams.itemSelectedId = event.target.value;
-      this.refreshEvents();
-    },
-    handleEventClick: function handleEventClick(event) {
-      if (event.url) {
-        // window.open(event.url, '_blank');
-        window.open(event.url, '_blank').focus();
-        return false;
-      }
-    },
-    refreshEvents: function refreshEvents() {
-      console.log('refreshEvents');
-      this.$refs.fullCalendar.getApi().refetchEvents();
-    },
-    getItemsForSelect: function getItemsForSelect() {
-      var _this = this;
+    methods: {
+        onChange: function onChange(event) {
+            console.log('onChange');
+            console.log(event.target.value);
+            this.calendarOptions.events.extraParams.itemSelectedId = event.target.value;
+            this.refreshEvents();
+        },
+        handleEventClick: function handleEventClick(event) {
+            if (event.url) {
+                // window.open(event.url, '_blank');
+                window.open(event.url, '_blank').focus();
+                return false;
+            }
+        },
+        refreshEvents: function refreshEvents() {
+            console.log('refreshEvents');
+            this.$refs.fullCalendar.getApi().refetchEvents();
+        },
+        getItemsForSelect: function getItemsForSelect() {
+            var _this = this;
 
-      Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items').then(function (response) {
-        _this.itemsId = response.data;
-        /*console.log('itemsId');
-        console.log(this.itemsId);*/
-      });
+            Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items').then(function (response) {
+                _this.itemsId = response.data;
+                /*console.log('itemsId');
+                console.log(this.itemsId);*/
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getItemsForSelect();
     }
-  },
-  mounted: function mounted() {
-    this.getItemsForSelect();
-  }
 });
 
 /***/ }),
@@ -30950,7 +30949,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'EventModal',
-    props: ['currentEvent', 'currentDate', 'customCommand', 'itemsId'],
+    props: ['currentEvent', 'currentDate', 'itemsId', 'itemId'],
     data: function data() {
         return {
             title: this.currentEvent !== null ? this.currentEvent.event.title : '',
@@ -30985,8 +30984,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.customCommand.prop_id,
-                      expression: "customCommand.prop_id"
+                      value: _vm.itemId,
+                      expression: "itemId"
                     }
                   ],
                   staticClass: "form-control form-select rounded-r-none",
@@ -31001,13 +31000,9 @@ var render = function() {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.$set(
-                          _vm.customCommand,
-                          "prop_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
+                        _vm.itemId = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
                       },
                       function($event) {
                         return _vm.onChange($event)
@@ -31017,13 +31012,7 @@ var render = function() {
                 },
                 [
                   _c("option", { attrs: { value: "", selected: "selected" } }, [
-                    _vm._v(
-                      _vm._s(
-                        _vm.config(
-                          "nova-lite-calendar-tool.items_dropdown_placeholder"
-                        )
-                      )
-                    )
+                    _vm._v(_vm._s(_vm.itemsDropdownPlaceholder))
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.itemsId, function(label, key) {

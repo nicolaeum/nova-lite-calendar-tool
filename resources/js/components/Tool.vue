@@ -4,9 +4,9 @@
             <div class="flex mt-6 mb-6" v-if="! Array.isArray(itemsId)">
               <select class="form-control form-select rounded-r-none"
                       @change="onChange($event)"
-                      v-model="customCommand.prop_id"
+                      v-model="itemId"
               >
-                <option value="" selected="selected">{{ config('nova-lite-calendar-tool.items_dropdown_placeholder')}}</option>
+                <option value="" selected="selected">{{ itemsDropdownPlaceholder}}</option>
                 <option :value="key" v-for="label,key in itemsId">{{ label }}</option>
               </select>
             </div>
@@ -68,10 +68,9 @@ export default {
             },
             currentEvent: null,
             currentDate: null,
-            customCommand : {
-              prop_id : ''
-            },
-            itemsId : null
+            itemId: null,
+            itemsId: null,
+            itemsDropdownPlaceholder: Nova.config.items_dropdown_placeholder
         }
     },
     methods: {
