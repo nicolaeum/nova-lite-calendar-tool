@@ -12414,7 +12414,7 @@ function randomColour() {
         events: {
           url: '/nova-vendor/nova-lite-calendar-tool/events',
           extraParams: {
-            itemSelectedId: null
+            itemSelectedId: ''
           },
           failure: function failure() {
             alert('there was an error while fetching events!');
