@@ -105,13 +105,14 @@ export default {
             this.$refs.fullCalendar.getApi().refetchEvents();
         },
         getItemsForSelect() {
-          Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
+          return [45, 46, 47];
+          /*return Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
               .then(response => {
                 console.log('nova request');
                 console.log(response.data);
 
                 return [45, 46, 47];
-                /*response.data.commands.forEach(command => {
+                /!*response.data.commands.forEach(command => {
                   let group = command.group;
                   if (this.groups.indexOf(group) < 0) {
                     this.groups.push(group);
@@ -127,8 +128,8 @@ export default {
 
                 if(this.customCommands){
                   this.customCommand.command_type = Object.keys(this.customCommands)[0];
-                }*/
-              })
+                }*!/
+              })*/
         }
     },
 }
