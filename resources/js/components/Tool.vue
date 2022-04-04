@@ -9,6 +9,7 @@
                       @change="onChange($event)"
                       v-model="itemId"
               >
+                <option value="" disabled>----</option>
                 <option :value="key" v-for="label,key in itemsId">{{ label }}</option>
               </select>
             </div>
