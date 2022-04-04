@@ -45,7 +45,9 @@
               title: this.currentEvent !== null ? this.currentEvent.event.title : '',
               start: moment(this.currentEvent !== null ? this.currentEvent.event.start : this.currentDate.date).format('YYYY-MM-DD HH:mm:ss'),
               end: this.currentEvent !== null ? moment(this.currentEvent.event.end).format('YYYY-MM-DD HH:mm:ss') : moment(this.currentDate.date).add(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
-              url: this.currentEvent !== null ? this.currentEvent.event.url : ''
+              url: this.currentEvent !== null ? this.currentEvent.event.url : '',
+              property_id: this.currentEvent !== null ? this.currentEvent.event.property_id : '',
+              items_id: this.currentEvent !== null ? this.currentEvent.event.items_id : ''
             }
         },
         methods: {

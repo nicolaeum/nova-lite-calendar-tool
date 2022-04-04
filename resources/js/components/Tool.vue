@@ -1,4 +1,15 @@
 <template>
+    <div class="flex mt-6 mb-6">
+      <select class="form-control form-select rounded-r-none"
+              @change="onChange($event)"
+              v-model="customCommand.prop_id"
+      >
+        <option :value="key" v-for="label,key in items_id">{{ label }}</option>
+      </select>
+<!--      <input type="text" v-model="customCommand.command" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">-->
+<!--      <input type="text" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">
+      <button type="button" class="items-right btn btn-default btn-primary" @click="runCustomCommand">Run</button>-->
+    </div>
     <div>
         <div class="card py-6 px-6">
             <FullCalendar ref="fullCalendar" :options="calendarOptions" />
@@ -40,17 +51,28 @@ export default {
     data() {
         return {
             calendarOptions: {
-                events: '/nova-vendor/nova-lite-calendar-tool/events',
+                // events: '/nova-vendor/nova-lite-calendar-tool/events',
+                events: {
+                  url: '/nova-vendor/nova-lite-calendar-tool/events',
+                  method: 'POST',
+                  extraParams: {
+                    itemPropId: '4'
+                  },
+                  failure: function() {
+                    alert('there was an error while fetching events!');
+                  }
+                },
                 plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
                 initialView: 'dayGridMonth',
                 locale: Nova.config.fullcalendar_locale || 'en',
                 dateClick: this.handleDateClick,
                 eventClick: this.handleEventClick,
-                eventColor: randomColour(),
+                // eventColor: randomColour(),
+                eventColor: '#960b57',
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
                 },
                 eventTimeFormat: {
                     hour: '2-digit',
@@ -62,10 +84,25 @@ export default {
             },
             currentEvent: null,
             currentDate: null,
-            showModal: false
+            showModal: false,
+            customCommand : {
+              prop_id : ''
+            }
         }
     },
     methods: {
+        onChange(event) {
+          console.log('onChange')
+          console.log(event.target.value)
+        },
+        runCustomCommand() {
+          console.log('runCustomCommand')
+          /*if(!this.customCommand.command){
+            this.$toasted.show('Please enter a command', {type: 'error'});
+            return;
+          }*/
+          /*this.openModal( this.customCommand );*/
+        },
         handleDateClick(date) {
             this.showModal = false;
             this.currentDate = date;
