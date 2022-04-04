@@ -109,11 +109,9 @@ export default {
     created() {
       let uri = window.location.search.substring(1);
       let params = new URLSearchParams(uri);
-      console.log('uri');
-      console.log(uri);
-      console.log('params');
-      console.log(params);
-      console.log(params.get('itemId'));
+      if (params.get('itemId')) {
+        this.itemsId = params.get('itemId');
+      }
     }
 }
 </script>
