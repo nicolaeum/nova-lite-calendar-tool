@@ -111,6 +111,7 @@ export default {
       let params = new URLSearchParams(uri);
       if (params.get('itemId')) {
         this.itemId = params.get('itemId');
+        this.calendarOptions.events.extraParams.itemSelectedId = params.get('itemId');
       }
     }
 }
