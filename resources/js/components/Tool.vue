@@ -110,7 +110,7 @@ export default {
       let uri = window.location.search.substring(1);
       let params = new URLSearchParams(uri);
       if (params.get('itemId')) {
-        this.itemsId = params.get('itemId');
+        this.itemId = params.get('itemId');
       }
     }
 }
