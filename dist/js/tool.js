@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12414,7 +12414,7 @@ function randomColour() {
         events: {
           url: '/nova-vendor/nova-lite-calendar-tool/events',
           extraParams: {
-            itemPropId: '47'
+            itemSelectedId: null
           },
           failure: function failure() {
             alert('there was an error while fetching events!');
@@ -12452,8 +12452,8 @@ function randomColour() {
     onChange: function onChange(event) {
       console.log('onChange');
       console.log(event.target.value);
-      this.calendarOptions.events.extraParams.itemPropId = event.target.value;
-      this.$emit('refreshEvents');
+      this.calendarOptions.events.extraParams.itemSelectedId = event.target.value;
+      this.refreshEvents();
     },
     handleEventClick: function handleEventClick(event) {
       if (event.url) {
@@ -12470,13 +12470,9 @@ function randomColour() {
       var _this = this;
 
       Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items').then(function (response) {
-        console.log('nova request');
-        console.log(response.data);
-
         _this.itemsId = response.data;
-
-        console.log('itemsId');
-        console.log(_this.itemsId);
+        /*console.log('itemsId');
+        console.log(this.itemsId);*/
       });
     }
   },

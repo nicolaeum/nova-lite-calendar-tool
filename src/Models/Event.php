@@ -29,6 +29,13 @@ class Event extends Model
             $query->where('end', '<=', $data['end']);
         }
 
+        if (!empty($data['itemSelectedId'])) {
+            $query->where(
+                config('nova-lite-calendar-tool.item_model_key_on_event_table'),
+                $data['itemSelectedId']
+            );
+        }
+
         return $query;
     }
 }

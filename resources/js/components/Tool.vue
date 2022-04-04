@@ -41,7 +41,7 @@ export default {
                 events: {
                   url: '/nova-vendor/nova-lite-calendar-tool/events',
                   extraParams: {
-                    itemPropId: '47'
+                    itemSelectedId: null
                   },
                   failure: function() {
                     alert('there was an error while fetching events!');
@@ -78,8 +78,8 @@ export default {
         onChange(event) {
           console.log('onChange');
           console.log(event.target.value);
-          this.calendarOptions.events.extraParams.itemPropId = event.target.value;
-          this.$emit('refreshEvents');
+          this.calendarOptions.events.extraParams.itemSelectedId = event.target.value;
+          this.refreshEvents();
         },
         handleEventClick(event) {
           if (event.url) {
@@ -95,13 +95,9 @@ export default {
         getItemsForSelect() {
             Nova.request().get('/nova-vendor/nova-lite-calendar-tool/items')
                 .then(response => {
-                  console.log('nova request');
-                  console.log(response.data);
-
                   this.itemsId = response.data;
-
-                  console.log('itemsId');
-                  console.log(this.itemsId);
+                  /*console.log('itemsId');
+                  console.log(this.itemsId);*/
                 })
         }
     },
