@@ -9,9 +9,6 @@
                 <option value="100" selected="selected">100 montaditos</option>
                 <option :value="key" v-for="label,key in items_id">{{ label }}</option>
               </select>
-              <!--      <input type="text" v-model="customCommand.command" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">-->
-              <!--      <input type="text" placeholder="Enter a Command..." class="w-full form-control form-input form-input-bordered mr-2 rounded-l-none">
-                    <button type="button" class="items-right btn btn-default btn-primary" @click="runCustomCommand">Run</button>-->
             </div>
             <FullCalendar ref="fullCalendar" :options="calendarOptions" />
         </div>
