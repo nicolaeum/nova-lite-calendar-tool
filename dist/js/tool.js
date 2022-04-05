@@ -12319,7 +12319,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -12425,6 +12425,7 @@ function randomColour() {
         },
         plugins: [__WEBPACK_IMPORTED_MODULE_1__fullcalendar_daygrid__["b" /* default */], __WEBPACK_IMPORTED_MODULE_2__fullcalendar_timegrid__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__fullcalendar_interaction__["a" /* default */]],
         initialView: 'dayGridMonth',
+        initialDate: null,
         locale: Nova.config.fullcalendar_locale || 'en',
         eventClick: this.handleEventClick,
         // eventColor: randomColour(),
@@ -12432,7 +12433,7 @@ function randomColour() {
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay,monthGridYear'
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         eventTimeFormat: {
           hour: '2-digit',
@@ -12442,11 +12443,6 @@ function randomColour() {
         },
         timeFormat: 'H(:mm)'
       },
-      year: 2022,
-      month: 7,
-      date: 25,
-      defaultDate: moment('2022-09-01'),
-
       currentEvent: null,
       currentDate: null,
       itemId: null,
@@ -12484,9 +12480,14 @@ function randomColour() {
   created: function created() {
     var uri = window.location.search.substring(1);
     var params = new URLSearchParams(uri);
+
     if (params.get('itemId')) {
       this.itemId = params.get('itemId');
       this.calendarOptions.events.extraParams.itemSelectedId = params.get('itemId');
+    }
+
+    if (params.get('initDate')) {
+      this.calendarOptions.initialDate = params.get('initDate');
     }
   }
 });
@@ -30993,9 +30994,9 @@ var render = function() {
                 { staticClass: "inline-block text-80 pt-2 leading-tight pr-2" },
                 [
                   _vm._v(
-                    "\n            " +
+                    "\n        " +
                       _vm._s(_vm.itemsDropdownPlaceholder) +
-                      "\n          "
+                      "\n      "
                   )
                 ]
               ),
