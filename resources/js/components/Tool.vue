@@ -69,6 +69,7 @@ export default {
                 },
                 timeFormat: 'H(:mm)'
             },
+            defaultDate: '2022-05-25',
             currentEvent: null,
             currentDate: null,
             itemId: null,
