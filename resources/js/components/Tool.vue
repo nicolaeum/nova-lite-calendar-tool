@@ -72,7 +72,9 @@ export default {
             year: 2022,
             month: 7,
             date: 25,
-            currentEvent: null,
+            defaultDate: moment('2022-09-01'),
+
+          currentEvent: null,
             currentDate: null,
             itemId: null,
             itemsId: null,
