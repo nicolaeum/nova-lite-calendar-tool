@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Validator;
 class Event extends Model
 {
     protected $guarded = ['id'];
-//    protected $table = 'property_bookings';
+
     protected $casts = [
-        'from'  => 'datetime',
-        'to'    => 'datetime'
+        'start'  => 'datetime',
+        'end'    => 'datetime'
     ];
 
     public function getTable()
@@ -27,6 +27,13 @@ class Event extends Model
 
         if (!empty($data['end'])) {
             $query->where('end', '<=', $data['end']);
+        }
+
+        if (!empty($data['itemSelectedId'])) {
+            $query->where(
+                config('nova-lite-calendar-tool.item_model_key_on_event_table'),
+                $data['itemSelectedId']
+            );
         }
 
         return $query;

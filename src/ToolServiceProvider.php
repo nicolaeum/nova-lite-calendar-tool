@@ -25,7 +25,7 @@ class ToolServiceProvider extends ServiceProvider
         ], 'migrations');*/
 
         $this->publishes([
-            __DIR__.'/config/nova-calendar-tool.php' => config_path('nova-calendar-tool.php'),
+            __DIR__.'/config/nova-lite-calendar-tool.php' => config_path('nova-lite-calendar-tool.php'),
         ], 'config');
 
         $this->app->booted(function () {
@@ -34,7 +34,8 @@ class ToolServiceProvider extends ServiceProvider
 
         Nova::serving(function (ServingNova $event) {
             Nova::provideToScript([
-                'fullcalendar_locale' => config('nova-lite-calendar-tool.fullcalendar_locale'),
+                'fullcalendar_locale'           => config('nova-lite-calendar-tool.fullcalendar_locale'),
+                'items_dropdown_placeholder'    => config('nova-lite-calendar-tool.items_dropdown_placeholder'),
             ]);
         });
     }
@@ -51,7 +52,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/nova-calendar-tool')
+                ->prefix('nova-vendor/nova-lite-calendar-tool')
                 ->namespace('Nicolaeum\NovaCalendarTool\Http\Controllers')
                 ->group(__DIR__.'/../routes/api.php');
 
@@ -66,5 +67,10 @@ class ToolServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    public static function getItemModel()
+    {
+        return config('nova-lite-calendar-tool.item_model');
     }
 }
